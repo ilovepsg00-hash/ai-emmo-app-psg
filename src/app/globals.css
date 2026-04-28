@@ -1,0 +1,202 @@
+@import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ────────────────────────────────────────────────────────────
+   마크다운 프리뷰 스타일 보호
+   Tailwind Preflight 가 리셋한 헤딩·목록·코드 등을 복원한다.
+   ──────────────────────────────────────────────────────────── */
+.wmde-markdown {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #1f2937;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.wmde-markdown h1 {
+  font-size: 1.875rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.35em;
+  margin-top: 0;
+}
+
+.wmde-markdown h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.25em;
+}
+
+.wmde-markdown h3 { font-size: 1.25rem; }
+.wmde-markdown h4 { font-size: 1.125rem; }
+.wmde-markdown h5 { font-size: 1rem; }
+.wmde-markdown h6 { font-size: 0.9375rem; color: #6b7280; }
+
+.wmde-markdown p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.wmde-markdown ul,
+.wmde-markdown ol {
+  padding-left: 1.75em;
+  margin-bottom: 1em;
+}
+
+.wmde-markdown ul { list-style-type: disc; }
+.wmde-markdown ol { list-style-type: decimal; }
+.wmde-markdown li { margin-bottom: 0.25em; }
+.wmde-markdown li > ul,
+.wmde-markdown li > ol { margin-bottom: 0; }
+
+.wmde-markdown a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+.wmde-markdown a:hover { color: #1d4ed8; }
+
+.wmde-markdown strong { font-weight: 700; }
+.wmde-markdown em { font-style: italic; }
+.wmde-markdown del { text-decoration: line-through; }
+
+.wmde-markdown code:not(pre code) {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0.1em 0.45em;
+  font-size: 0.875em;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  color: #be185d;
+}
+
+.wmde-markdown pre {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1em 1.25em;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.wmde-markdown pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.875em;
+  color: #e2e8f0;
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+}
+
+.wmde-markdown blockquote {
+  border-left: 4px solid #d1d5db;
+  padding: 0.25em 0 0.25em 1em;
+  color: #6b7280;
+  margin: 0 0 1em;
+  background: #f9fafb;
+  border-radius: 0 6px 6px 0;
+}
+
+.wmde-markdown hr {
+  border: none;
+  border-top: 2px solid #e5e7eb;
+  margin: 1.5em 0;
+}
+
+.wmde-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+}
+
+.wmde-markdown table th,
+.wmde-markdown table td {
+  border: 1px solid #d1d5db;
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+.wmde-markdown table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.wmde-markdown table tr:nth-child(even) { background: #f9fafb; }
+
+.wmde-markdown img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 0.5em 0;
+}
+
+/* ────────────────────────────────────────────────────────────
+   MDEditor 편집기 자체 스타일 보정
+   ──────────────────────────────────────────────────────────── */
+.w-md-editor {
+  border-radius: 8px !important;
+}
+
+.w-md-editor-toolbar {
+  border-bottom: 1px solid #e5e7eb !important;
+  background: #f9fafb !important;
+}
+
+.w-md-editor-toolbar li > button {
+  color: #374151 !important;
+}
+
+.w-md-editor-toolbar li > button:hover {
+  color: #2563eb !important;
+  background: #eff6ff !important;
+}
+
+.w-md-editor-preview .wmde-markdown {
+  padding: 12px 16px;
+}
+
+/* Custom utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
